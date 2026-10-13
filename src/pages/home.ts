@@ -5,8 +5,10 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../styles/main.css";
 import { initHomeShowcase } from "./home-showcase";
 import { initCart } from "./cart";
+import { initSearch } from "./search";
 import { initShell } from "./shell";
 
 initShell();
 initCart();
+initSearch();
 initHomeShowcase();
