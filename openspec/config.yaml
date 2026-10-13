@@ -18,4 +18,4 @@ rules:
     - Name concrete files to create or modify.
   tasks:
     - Every task ends with how to verify it (command, test name, or what to look at).
-    - Last group is "Ship": run pnpm check, run the review agents, open the PR with the ship-change skill.
+    - 'Last group is "Ship": run pnpm check, run the review agents, open the PR with the ship-change skill.'
