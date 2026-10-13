@@ -2,6 +2,7 @@
  * Font Awesome Free 7.3.1 subset: only the icons the site uses (the full CSS is ~80 KB and delays first paint).
  * Fonts: SIL OFL 1.1, icons: CC BY 4.0, code: MIT (https://fontawesome.com/license/free).
  * To add an icon, copy its `--fa` codepoint from node_modules/@fortawesome/fontawesome-free/css/{fontawesome,brands}.css.
+ * After adding an icon, run `pnpm icons` to rebuild the subset fonts.
  */
 :root,
 :host {
@@ -13,14 +14,14 @@
   font-style: normal;
   font-weight: 900;
   font-display: block;
-  src: url("@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2") format("woff2");
+  src: url("../assets/fonts/fa-solid-900.woff2") format("woff2");
 }
 @font-face {
   font-family: "Font Awesome 7 Brands";
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  src: url("@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2") format("woff2");
+  src: url("../assets/fonts/fa-brands-400.woff2") format("woff2");
 }
 .fa-solid {
   --fa-style: 900;
