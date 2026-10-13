@@ -20,6 +20,6 @@
 
 ## 5. Ship
 
-- [ ] 5.1 Run `pnpm check`; verify it exits 0
-- [ ] 5.2 Run `a11y-auditor`, `responsive-reviewer` and `spec-verifier` (`add-search-to-detail`); fix blockers
-- [ ] 5.3 Open the PR with the `ship-change` skill (branch `feat/add-search-to-detail`), with screenshots of Home (typed query) and Detail (result) at 1440 and 375
+- [x] 5.1 Run `pnpm check`; verify it exits 0
+- [x] 5.2 Run `a11y-auditor`, `responsive-reviewer` and `spec-verifier` (`add-search-to-detail`); fix blockers
+- [x] 5.3 Open the PR with the `ship-change` skill (branch `feat/add-search-to-detail`), with screenshots of Home (typed query) and Detail (result) at 1440 and 375
