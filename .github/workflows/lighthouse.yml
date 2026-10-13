@@ -1,0 +1,64 @@
+name: lighthouse
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: lighthouse-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  lighthouse:
+    name: lighthouse
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      # Budgets live in lighthouserc.json (perf >= 0.8, a11y / best practices / SEO >= 0.9).
+      # lighthouserc.json runs each page 3 times; lhci asserts on the best run.
+      - name: Lighthouse CI
+        run: pnpm lhci
+
+      - name: Summarise scores
+        if: always()
+        id: summary
+        run: |
+          {
+            echo 'body<<EOF'
+            echo '🔦 **Lighthouse** (mobile, best of 3 runs per page)'
+            echo
+            echo '| Page | Perf | A11y | Best practices | SEO | Report |'
+            echo '|---|---|---|---|---|---|'
+            if ls .lighthouseci/lhr-*.json >/dev/null 2>&1; then
+              links='{}'
+              [ -f .lighthouseci/links.json ] && links=$(cat .lighthouseci/links.json)
+              jq -rs --argjson links "$links" '
+                def s(k): (.categories[k].score * 100 | round);
+                group_by(.requestedUrl)[] | max_by(.categories.performance.score) |
+                "| \(.requestedUrl | sub("^https?://[^/]+"; "")) | \(s("performance")) | \(s("accessibility")) | \(s("best-practices")) | \(s("seo")) | [open](\($links[.requestedUrl] // "#")) |"
+              ' .lighthouseci/lhr-*.json
+            else
+              echo '| – | – | – | – | – | no results |'
+            fi
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Comment on PR
+        if: always() && github.event_name == 'pull_request'
+        uses: marocchino/sticky-pull-request-comment@v3
+        with:
+          header: lighthouse
+          message: ${{ steps.summary.outputs.body }}
