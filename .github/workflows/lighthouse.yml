@@ -28,9 +28,9 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       # Budgets live in lighthouserc.json (perf >= 0.8, a11y / best practices / SEO >= 0.9).
-      # 3 runs per page: lhci asserts on the best run, which smooths out noisy CI runners.
+      # lighthouserc.json runs each page 3 times; lhci asserts on the best run.
       - name: Lighthouse CI
-        run: pnpm lhci --collect.numberOfRuns=3
+        run: pnpm lhci
 
       - name: Summarise scores
         if: always()
