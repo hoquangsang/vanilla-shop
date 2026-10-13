@@ -14,9 +14,9 @@ const CAROUSEL = {
   },
 } as const;
 
-/** Renders product cards (from `#product-card-template`) into a product carousel. */
 let cardCount = 0;
 
+/** Renders product cards (from `#product-card-template`) into a product carousel. */
 export class ProductListView {
   private carousel: CarouselView | undefined;
 
