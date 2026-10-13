@@ -12,8 +12,8 @@ Changes run **one at a time**: a cloud session starts the next change only after
 | 1 | T1 | `setup-project-scaffold` | cloud | T0 | ✅ done (#1) |
 | 2 | T2 | `setup-ci-cd` | local | T1 | ✅ done (#3) |
 | 3 | T3 | `add-mvc-core` | cloud | T2 | ✅ done (#5) |
-| 4 | T4 | `add-site-layout` | cloud | T3 | ⏳ next |
-| 5 | T5 | `add-home-showcase` | cloud | T4 | waiting |
+| 4 | T4 | `add-site-layout` | cloud | T3 | ✅ done (#6) |
+| 5 | T5 | `add-home-showcase` | cloud | T4 | ⏳ next |
 | 6 | T7 | `add-cart-flow` | cloud | T5 | waiting |
 | 7 | T8 | `add-search-to-detail` | cloud | T7 | waiting |
 | 8 | T6 | `add-home-brand-content` | cloud | T8 | waiting |
