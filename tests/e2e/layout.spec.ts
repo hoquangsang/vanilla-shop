@@ -69,7 +69,7 @@ test.describe("shared shell", () => {
   test("current page link", async ({ page }) => {
     await page.goto("/index.html");
     if (width(page) < 1024) await page.getByRole("button", { name: "Menu" }).click();
-    await expect(page.locator("[aria-current]")).toHaveCount(1);
+    await expect(page.locator("header [aria-current]")).toHaveCount(1);
     const home = page.locator("[data-nav=home]");
     await expect(home).toHaveAttribute("aria-current", "page");
     await expect(home).toHaveCSS("color", ACTIVE);
