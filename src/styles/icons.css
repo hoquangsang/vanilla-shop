@@ -1,0 +1,133 @@
+/*
+ * Font Awesome Free 7.3.1 subset: only the icons the site uses (the full CSS is ~80 KB and delays first paint).
+ * Fonts: SIL OFL 1.1, icons: CC BY 4.0, code: MIT (https://fontawesome.com/license/free).
+ * To add an icon, copy its `--fa` codepoint from node_modules/@fortawesome/fontawesome-free/css/{fontawesome,brands}.css.
+ */
+:root,
+:host {
+  --fa-family-classic: "Font Awesome 7 Free";
+  --fa-family-brands: "Font Awesome 7 Brands";
+}
+@font-face {
+  font-family: "Font Awesome 7 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Font Awesome 7 Brands";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2") format("woff2");
+}
+.fa-solid {
+  --fa-style: 900;
+}
+.fa-brands {
+  --fa-family: var(--fa-family-brands);
+  --fa-style: 400;
+}
+.fa-solid,
+.fa-regular,
+.fa-brands,
+.fa-classic,
+.fas,
+.far,
+.fab,
+.fa {
+  --_fa-family: var(--fa-family, var(--fa-style-family, "Font Awesome 7 Free"));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: var(--fa-display, inline-block);
+  font-family: var(--_fa-family);
+  font-feature-settings: normal;
+  font-style: normal;
+  font-synthesis: none;
+  font-variant: normal;
+  font-weight: var(--fa-style, 900);
+  line-height: 1;
+  text-align: center;
+  text-rendering: auto;
+  width: var(--fa-width, 1.25em);
+}
+
+:is(.fas, .far, .fab, .fa-solid, .fa-regular, .fa-brands, .fa-classic, .fa)::before {
+  content: var(--fa) / "";
+}
+
+@supports not (content: ""/"") {
+  :is(.fas, .far, .fab, .fa-solid, .fa-regular, .fa-brands, .fa-classic, .fa)::before {
+    content: var(--fa);
+  }
+}
+.fa-angle-down {
+  --fa: "\f107";
+}
+.fa-angle-right {
+  --fa: "\f105";
+}
+.fa-bars {
+  --fa: "\f0c9";
+}
+.fa-caret-down {
+  --fa: "\f0d7";
+}
+.fa-cart-shopping {
+  --fa: "\f07a";
+}
+.fa-chevron-left {
+  --fa: "\f053";
+}
+.fa-chevron-right {
+  --fa: "\f054";
+}
+.fa-envelope {
+  --fa: "\f0e0";
+}
+.fa-heart {
+  --fa: "\f004";
+}
+.fa-location-dot {
+  --fa: "\f3c5";
+}
+.fa-magnifying-glass {
+  --fa: "\f002";
+}
+.fa-phone {
+  --fa: "\f095";
+}
+.fa-cc-amex {
+  --fa: "\f1f3";
+}
+.fa-cc-diners-club {
+  --fa: "\f24c";
+}
+.fa-cc-discover {
+  --fa: "\f1f2";
+}
+.fa-cc-mastercard {
+  --fa: "\f1f1";
+}
+.fa-cc-paypal {
+  --fa: "\f1f4";
+}
+.fa-cc-visa {
+  --fa: "\f1f0";
+}
+.fa-facebook-f {
+  --fa: "\f39e";
+}
+.fa-instagram {
+  --fa: "\f16d";
+}
+.fa-linkedin-in {
+  --fa: "\f0e1";
+}
+.fa-twitter {
+  --fa: "\f099";
+}
+.fa-youtube {
+  --fa: "\f167";
+}
