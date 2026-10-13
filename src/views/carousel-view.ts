@@ -61,7 +61,11 @@ export class CarouselView {
       rewind: options.rewind ?? false,
       watchSlidesProgress: options.watchSlidesProgress ?? false,
       speed: reduceMotion ? 0 : 300,
-      a11y: { enabled: true },
+      // A <ul class="swiper-wrapper"> needs <li> children: give its slides the list-item role (axe: list).
+      a11y: {
+        enabled: true,
+        slideRole: container.querySelector("ul.swiper-wrapper") ? "listitem" : "group",
+      },
       keyboard: { enabled: true, onlyInViewport: true },
       autoplay:
         autoplay && options.autoplayMs !== undefined

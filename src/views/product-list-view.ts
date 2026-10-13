@@ -14,6 +14,8 @@ const CAROUSEL = {
   },
 } as const;
 
+let cardCount = 0;
+
 /** Renders product cards (from `#product-card-template`) into a product carousel. */
 export class ProductListView {
   private carousel: CarouselView | undefined;
@@ -45,7 +47,13 @@ export class ProductListView {
     field("name").textContent = product.name;
     field("price").textContent = formatPrice(product.price);
     field("old-price").textContent = formatPrice(product.oldPrice);
-    field("cart").dataset.addToCart = product.id;
+    const cart = field("cart");
+    cart.dataset.addToCart = product.id;
+    // Distinct accessible name per card: "Add to cart <product name>" (the button text can change).
+    const uid = ++cardCount;
+    cart.id = `cart-btn-${uid}`;
+    field("name").id = `product-name-${uid}`;
+    cart.setAttribute("aria-labelledby", `cart-btn-${uid} product-name-${uid}`);
     if (!product.onSale) field("sale").remove();
     // Static, trusted markup (no product data), so innerHTML is safe here.
     if (product.hasAward) field("award").innerHTML = AWARD_SEAL_SVG;
