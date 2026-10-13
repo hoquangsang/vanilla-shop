@@ -1,0 +1,46 @@
+name: claude-review
+
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review]
+
+concurrency:
+  group: claude-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+  id-token: write
+
+jobs:
+  review:
+    if: github.event.pull_request.draft == false && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            Review pull request #${{ github.event.pull_request.number }} in ${{ github.repository }}.
+
+            Context to read first: CLAUDE.md, openspec/ROADMAP.md, and the OpenSpec change folder this PR implements
+            (named in the PR title/body, under openspec/changes/<id>/).
+
+            Check, in this order:
+            1. Does the diff satisfy every requirement and scenario in that change's specs and every ticked task?
+            2. MVC layering: views never import models; models never touch the DOM; controllers wire them.
+            3. User text rendered with textContent/value, never innerHTML.
+            4. Responsive: mobile-first classes, no fixed widths that can overflow at 320px.
+            5. Scope: nothing outside the change's owned regions/modules (ROADMAP > Shared contracts).
+
+            Post inline comments only for real problems (bugs, spec gaps, layering violations, a11y blockers).
+            Skip formatting nits; Prettier and ESLint already run in CI.
+            Finish with one summary comment: verdict (approve / changes needed) and a short list of findings.
+          claude_args: |
+            --allowedTools "mcp__github_inline_comment__create_inline_comment,Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Read,Glob,Grep"

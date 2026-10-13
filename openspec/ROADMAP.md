@@ -7,8 +7,8 @@ Changes run **one at a time**: a cloud session starts the next change only after
 | # | Id | Change | Owner | Needs merged | Status |
 |---|---|---|---|---|---|
 | 0 | T0 | bootstrap repo, Claude setup, design docs, all specs | local | – | ✅ done |
-| 1 | T1 | `setup-project-scaffold` | cloud | T0 | ⏳ next |
-| 2 | T2 | `setup-ci-cd` | local | T1 | waiting |
+| 1 | T1 | `setup-project-scaffold` | cloud | T0 | ✅ done (#1) |
+| 2 | T2 | `setup-ci-cd` | local | T1 | 🔧 in progress |
 | 3 | T3 | `add-mvc-core` | cloud | T2 | waiting |
 | 4 | T4 | `add-site-layout` | cloud | T3 | waiting |
 | 5 | T5 | `add-home-showcase` | cloud | T4 | waiting |
