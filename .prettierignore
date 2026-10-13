@@ -1,0 +1,13 @@
+dist
+pnpm-lock.yaml
+public/images
+docs/design
+playwright-report
+test-results
+
+# Owned by the planning session (docs, specs, Claude setup)
+.claude
+.github
+openspec
+CLAUDE.md
+README.md
