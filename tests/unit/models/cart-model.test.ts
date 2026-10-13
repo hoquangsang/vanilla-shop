@@ -116,6 +116,15 @@ describe("CartModel", () => {
     expect(cart.count).toBe(0);
   });
 
+  it("counts ids that collide with Object.prototype members", () => {
+    const cart = new CartModel(createMemoryStorage());
+    cart.add("constructor");
+    cart.add("constructor");
+    cart.add("__proto__");
+    expect(cart.count).toBe(3);
+    expect(cart.getState().count).toBe(3);
+  });
+
   it("returns frozen copies from getState", () => {
     const cart = new CartModel(createMemoryStorage());
     cart.add("p1");

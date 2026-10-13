@@ -2,6 +2,13 @@ import { EventEmitter } from "../core/event-emitter";
 import type { KeyValueStorage } from "../core/storage";
 import type { CartState } from "../types/cart";
 
+// Prototype-less copy so ids like "constructor" or "__proto__" are plain keys.
+function bare(source: Record<string, number>): Record<string, number> {
+  const target = Object.create(null) as Record<string, number>;
+  for (const [id, qty] of Object.entries(source)) target[id] = qty;
+  return target;
+}
+
 export function parseCart(raw: string | null): Record<string, number> {
   if (!raw) return {};
   try {
@@ -11,7 +18,7 @@ export function parseCart(raw: string | null): Record<string, number> {
     if (version !== 1 || typeof items !== "object" || items === null || Array.isArray(items)) {
       return {};
     }
-    const result: Record<string, number> = {};
+    const result = bare({});
     for (const [id, qty] of Object.entries(items)) {
       if (id.trim() !== "" && typeof qty === "number" && Number.isInteger(qty) && qty > 0) {
         result[id] = qty;
@@ -31,9 +38,9 @@ export class CartModel extends EventEmitter<{ change: CartState }> {
 
   constructor(private readonly storage: KeyValueStorage) {
     super();
-    this.items = parseCart(this.read());
+    this.items = bare(parseCart(this.read()));
     this.stopExternal = storage.onExternalChange(CartModel.STORAGE_KEY, (value) => {
-      this.items = parseCart(value);
+      this.items = bare(parseCart(value));
       this.emit("change", this.getState());
     });
   }
