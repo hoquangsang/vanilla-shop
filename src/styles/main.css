@@ -39,15 +39,16 @@
   .btn-outline {
     @apply inline-flex cursor-pointer items-center justify-center gap-2 border border-current bg-transparent px-5 py-2.5 font-medium transition-colors hover:border-primary hover:bg-primary hover:text-white focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none;
   }
+}
 
-  /* CarouselView pagination: "bar" (product + news carousels, docs/design/zoom/home-part-2.png) */
-  .carousel-bar-pagination {
-    @apply flex items-center justify-center gap-1;
-  }
-  .carousel-bar-pagination .swiper-pagination-bullet {
-    @apply m-0 h-1 w-2 rounded-none bg-gray-300 opacity-100 transition-[width,background-color];
-  }
-  .carousel-bar-pagination .swiper-pagination-bullet-active {
-    @apply w-6 bg-ink;
-  }
+/* Unlayered on purpose: Swiper's own (unlayered) CSS would otherwise win over @layer components. */
+/* CarouselView pagination: "bar" (product + news carousels, docs/design/zoom/home-part-2.png) */
+.carousel-bar-pagination {
+  @apply flex items-center justify-center gap-1;
+}
+.carousel-bar-pagination .swiper-pagination-bullet {
+  @apply m-0 h-1 w-2 rounded-none bg-gray-300 opacity-100 transition-[width,background-color];
+}
+.carousel-bar-pagination .swiper-pagination-bullet-active {
+  @apply w-6 bg-ink;
 }
