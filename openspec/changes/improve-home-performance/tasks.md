@@ -16,5 +16,5 @@
 ## 4. Ship
 
 - [x] 4.1 Run `pnpm check` and `pnpm test:e2e`; verify both exit 0, then run `pnpm screenshots` and check visually that `home-1440.png` and `home-375.png` show all header, top-bar and footer icons (commit the regenerated screenshots)
-- [ ] 4.2 Run the `spec-verifier` agent for `improve-home-performance`; verify it reports READY FOR PR
-- [ ] 4.3 Open the PR with the `ship-change` skill (branch `perf/improve-home-performance`, title `perf: improve-home-performance - subset icon fonts`)
+- [x] 4.2 Run the `spec-verifier` agent for `improve-home-performance`; verify it reports READY FOR PR
+- [x] 4.3 Open the PR with the `ship-change` skill (branch `perf/improve-home-performance`, title `perf: improve-home-performance - subset icon fonts`)
