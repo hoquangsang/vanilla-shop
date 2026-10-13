@@ -12,8 +12,8 @@ Changes run **one at a time**: a cloud session starts the next change only after
 | 1 | T1 | `setup-project-scaffold` | cloud | T0 | ✅ done (#1) |
 | 2 | T2 | `setup-ci-cd` | local | T1 | ✅ done (#3) |
 | 3 | T3 | `add-mvc-core` | cloud | T2 | ✅ done (#5) |
-| 4 | T4 | `add-site-layout` | cloud | T3 | ⏳ next |
-| 5 | T5 | `add-home-showcase` | cloud | T4 | waiting |
+| 4 | T4 | `add-site-layout` | cloud | T3 | ✅ done (#6) |
+| 5 | T5 | `add-home-showcase` | cloud | T4 | ⏳ next |
 | 6 | T7 | `add-cart-flow` | cloud | T5 | waiting |
 | 7 | T8 | `add-search-to-detail` | cloud | T7 | waiting |
 | 8 | T6 | `add-home-brand-content` | cloud | T8 | waiting |
@@ -60,6 +60,7 @@ Every change relies on these names. **Do not rename them**; a change that needs 
 | `data-categories-toggle` / `data-categories-menu` | Categories button / list | T4 | T4 |
 | `data-nav-toggle` / `data-nav-menu` | hamburger / collapsible nav | T4 | T4 |
 | `data-nav="home"` / `data-nav="detail"` | nav links that get `aria-current="page"` | T4 | T4 |
+| `data-dropdown` (wrapper) with `data-dropdown-toggle` / `data-dropdown-menu` | click-to-open sub-menus ("Pages", "Dresses") | T4 | T4 |
 | `data-hero-slot` | empty, `aria-hidden` left column (`lg:` 1/4 width) beside the hero. On Home ≥ lg the Categories menu (absolutely positioned, open by default) overlays it | T5 | T4 |
 | `data-carousel` | root of every Swiper carousel (`CarouselView`) | T1 | T5, T6 |
 | `data-product-list="description"` / `="specifications"` | product carousel wrappers | T5 | T5 |

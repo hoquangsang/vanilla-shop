@@ -1,1 +1,255 @@
-<header class="border-b p-4">Header (T4)</header>
+<header>
+  <div class="bg-primary text-sm text-white">
+    <div class="container-page flex h-9 items-center justify-center md:justify-between">
+      <nav aria-label="Help" class="hidden md:block">
+        <ul class="flex items-center">
+          <li class="pr-2"><a href="#" class="hover:underline">FAQs</a></li>
+          <li class="border-l border-white/40 px-2">
+            <a href="#" class="hover:underline">Help</a>
+          </li>
+          <li class="border-l border-white/40 pl-2">
+            <a href="#" class="hover:underline">Support</a>
+          </li>
+        </ul>
+      </nav>
+      <ul aria-label="Social media" class="flex items-center">
+        <li>
+          <a
+            href="#"
+            aria-label="Facebook"
+            class="inline-flex size-9 items-center justify-center hover:text-link-active"
+            ><i class="fa-brands fa-facebook-f" aria-hidden="true"></i
+          ></a>
+        </li>
+        <li>
+          <a
+            href="#"
+            aria-label="Twitter"
+            class="inline-flex size-9 items-center justify-center hover:text-link-active"
+            ><i class="fa-brands fa-twitter" aria-hidden="true"></i
+          ></a>
+        </li>
+        <li>
+          <a
+            href="#"
+            aria-label="LinkedIn"
+            class="inline-flex size-9 items-center justify-center hover:text-link-active"
+            ><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i
+          ></a>
+        </li>
+        <li>
+          <a
+            href="#"
+            aria-label="Instagram"
+            class="inline-flex size-9 items-center justify-center hover:text-link-active"
+            ><i class="fa-brands fa-instagram" aria-hidden="true"></i
+          ></a>
+        </li>
+        <li>
+          <a
+            href="#"
+            aria-label="YouTube"
+            class="inline-flex size-9 items-center justify-center hover:text-link-active"
+            ><i class="fa-brands fa-youtube" aria-hidden="true"></i
+          ></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div
+    class="container-page grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-3 py-4 md:grid-cols-[1fr_2fr_1fr]"
+  >
+    <a
+      href="index.html"
+      class="text-xl font-bold tracking-wider text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none md:hidden"
+      >VANILLA SHOP</a
+    >
+    <form
+      data-search-form
+      role="search"
+      action="detail.html"
+      method="get"
+      class="col-span-2 row-start-2 flex border border-black/15 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary md:col-span-1 md:col-start-2 md:row-start-1"
+    >
+      <label for="site-search" class="sr-only">Search products</label>
+      <input
+        id="site-search"
+        data-search-input
+        name="q"
+        type="search"
+        maxlength="200"
+        autocomplete="off"
+        placeholder="Search for products"
+        class="min-w-0 flex-1 bg-transparent px-4 py-2.5 outline-none placeholder:text-ink-muted"
+      />
+      <button
+        type="submit"
+        aria-label="Search"
+        class="px-4 text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-inset"
+      >
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      </button>
+    </form>
+    <div class="flex items-center gap-2 justify-self-end md:col-start-3 md:row-start-1">
+      <a
+        href="#"
+        aria-label="Wishlist, 0 items"
+        class="inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 border border-black/10 px-3 py-2 text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
+      >
+        <i class="fa-solid fa-heart" aria-hidden="true"></i>
+        <span data-wishlist-count class="text-xs text-ink-muted" aria-hidden="true">0</span>
+      </a>
+      <a
+        href="#"
+        data-cart-link
+        aria-label="Cart, 0 items"
+        class="inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 border border-black/10 px-3 py-2 text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
+      >
+        <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+        <span data-cart-count class="text-xs text-ink-muted" aria-hidden="true">0</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="relative">
+    <div class="container-page flex items-start justify-between lg:items-center">
+      <div class="relative lg:w-1/4">
+        <button
+          type="button"
+          data-categories-toggle
+          aria-expanded="false"
+          aria-controls="categories-menu"
+          class="flex h-14 w-full cursor-pointer items-center justify-between gap-6 bg-primary px-6 font-bold text-white focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none"
+        >
+          Categories <i class="fa-solid fa-angle-down text-sm" aria-hidden="true"></i>
+        </button>
+        <ul
+          id="categories-menu"
+          data-categories-menu
+          hidden
+          class="absolute top-full left-0 z-30 w-64 border border-t-0 border-black/10 bg-white lg:w-full"
+        >
+          <li class="border-b border-black/10" data-dropdown>
+            <button
+              type="button"
+              data-dropdown-toggle
+              aria-expanded="false"
+              aria-controls="dresses-menu"
+              class="flex w-full cursor-pointer items-center justify-between px-6 py-2.5 hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-inset"
+            >
+              Dresses <i class="fa-solid fa-caret-down text-xs" aria-hidden="true"></i>
+            </button>
+            <ul
+              id="dresses-menu"
+              data-dropdown-menu
+              hidden
+              class="bg-surface-muted lg:absolute lg:top-0 lg:left-full lg:w-full lg:border lg:border-black/10 lg:bg-white"
+            >
+              <li>
+                <a href="#" class="block px-8 py-2.5 hover:text-primary lg:px-6">Men's Dresses</a>
+              </li>
+              <li>
+                <a href="#" class="block px-8 py-2.5 hover:text-primary lg:px-6">Women's Dresses</a>
+              </li>
+              <li>
+                <a href="#" class="block px-8 py-2.5 hover:text-primary lg:px-6">Baby's Dresses</a>
+              </li>
+            </ul>
+          </li>
+          <li class="border-b border-black/10">
+            <a href="#" class="block px-6 py-2.5 hover:text-primary">Shirts</a>
+          </li>
+          <li class="border-b border-black/10">
+            <a href="#" class="block px-6 py-2.5 hover:text-primary">Jeans</a>
+          </li>
+          <li class="border-b border-black/10">
+            <a href="#" class="block px-6 py-2.5 hover:text-primary">Swimwear</a>
+          </li>
+          <li class="border-b border-black/10">
+            <a href="#" class="block px-6 py-2.5 hover:text-primary">Sleepwear</a>
+          </li>
+          <li class="border-b border-black/10">
+            <a href="#" class="block px-6 py-2.5 hover:text-primary">Sportswear</a>
+          </li>
+          <li class="border-b border-black/10">
+            <a href="#" class="block px-6 py-2.5 hover:text-primary">Jumpsuits</a>
+          </li>
+          <li class="border-b border-black/10">
+            <a href="#" class="block px-6 py-2.5 hover:text-primary">Blazers</a>
+          </li>
+          <li class="border-b border-black/10">
+            <a href="#" class="block px-6 py-2.5 hover:text-primary">Jackets</a>
+          </li>
+          <li><a href="#" class="block px-6 py-2.5 hover:text-primary">Shoes</a></li>
+        </ul>
+      </div>
+
+      <nav aria-label="Main" class="lg:w-3/4">
+        <button
+          type="button"
+          data-nav-toggle
+          aria-expanded="false"
+          aria-controls="main-nav"
+          aria-label="Menu"
+          class="flex size-14 cursor-pointer items-center justify-center text-xl text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none lg:hidden"
+        >
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+        <div
+          id="main-nav"
+          data-nav-menu
+          hidden
+          class="absolute inset-x-0 top-full z-20 border-y border-black/10 bg-white px-4 py-2 lg:static lg:flex lg:items-center lg:justify-between lg:border-0 lg:p-0 lg:pl-3"
+        >
+          <ul class="lg:flex lg:items-center lg:gap-1">
+            <li>
+              <a
+                href="index.html"
+                data-nav="home"
+                class="block px-3 py-2 hover:text-primary aria-[current=page]:text-link-active"
+                >Home</a
+              >
+            </li>
+            <li><a href="#" class="block px-3 py-2 hover:text-primary">Shop</a></li>
+            <li>
+              <a
+                href="detail.html"
+                data-nav="detail"
+                class="block px-3 py-2 hover:text-primary aria-[current=page]:text-link-active"
+                >Shop Detail</a
+              >
+            </li>
+            <li class="relative" data-dropdown>
+              <button
+                type="button"
+                data-dropdown-toggle
+                aria-expanded="false"
+                aria-controls="pages-menu"
+                class="flex w-full cursor-pointer items-center gap-1.5 px-3 py-2 hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
+              >
+                Pages <i class="fa-solid fa-caret-down text-xs" aria-hidden="true"></i>
+              </button>
+              <ul
+                id="pages-menu"
+                data-dropdown-menu
+                hidden
+                class="bg-surface-muted pl-4 lg:absolute lg:top-full lg:left-0 lg:z-30 lg:min-w-44 lg:border lg:border-black/10 lg:bg-white lg:p-0"
+              >
+                <li>
+                  <a href="#" class="block px-3 py-2 hover:text-primary lg:px-4">Shopping Cart</a>
+                </li>
+                <li><a href="#" class="block px-3 py-2 hover:text-primary lg:px-4">Checkout</a></li>
+              </ul>
+            </li>
+            <li><a href="#" class="block px-3 py-2 hover:text-primary">Contact</a></li>
+          </ul>
+          <ul class="border-t border-black/10 lg:flex lg:gap-1 lg:border-0">
+            <li><a href="#" class="block px-3 py-2 hover:text-primary">Login</a></li>
+            <li><a href="#" class="block px-3 py-2 hover:text-primary">Register</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
