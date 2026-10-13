@@ -18,5 +18,5 @@
 ## 4. Ship
 
 - [x] 4.1 Run `pnpm check`; verify it exits 0 and the guard-mvc hook never fired (no DOM in models)
-- [ ] 4.2 Run the `spec-verifier` agent for `add-mvc-core`; verify it reports `READY FOR PR`
+- [x] 4.2 Run the `spec-verifier` agent for `add-mvc-core`; verify it reports `READY FOR PR`
 - [ ] 4.3 Open the PR with the `ship-change` skill (branch `feat/add-mvc-core`, title `feat: add-mvc-core - cart and search models`)
