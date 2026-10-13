@@ -1,0 +1,57 @@
+name: deploy
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+  deployments: write
+
+jobs:
+  ci:
+    uses: ./.github/workflows/ci.yml
+
+  deploy:
+    name: vercel
+    needs: ci
+    # Forks have no access to secrets.
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: ${{ github.event_name == 'push' && 'production' || 'preview' }}
+      url: ${{ steps.deploy.outputs.url }}
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      VERCEL_ENV: ${{ github.event_name == 'push' && 'production' || 'preview' }}
+      PROD_FLAG: ${{ github.event_name == 'push' && '--prod' || '' }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: npm i -g vercel@latest
+      - run: vercel pull --yes --environment=$VERCEL_ENV --token=$VERCEL_TOKEN
+      - run: vercel build $PROD_FLAG --token=$VERCEL_TOKEN
+      - id: deploy
+        run: echo "url=$(vercel deploy --prebuilt $PROD_FLAG --token=$VERCEL_TOKEN)" >> "$GITHUB_OUTPUT"
+      - name: Comment preview URL
+        if: github.event_name == 'pull_request'
+        uses: marocchino/sticky-pull-request-comment@v3
+        with:
+          header: vercel-preview
+          message: |
+            🔍 **Preview:** ${{ steps.deploy.outputs.url }}
+
+            Built from ${{ github.event.pull_request.head.sha }}.
