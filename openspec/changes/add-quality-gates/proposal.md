@@ -2,7 +2,7 @@
 
 ## Why
 
-Roadmap **T9**, the last change. Depends on T7 and T8, so both pages are complete. The brief asks for "responsive đúng tiêu chuẩn" (proper responsive). This change turns that into measurable, automated gates (no horizontal overflow at any common width, no serious accessibility violations, Lighthouse budgets), fixes whatever they find, and produces the screenshots the README needs.
+Roadmap **T9**, the last change. Runs after T6, so every other change is merged and both pages are complete. The brief asks for "responsive đúng tiêu chuẩn" (proper responsive). This change turns that into measurable, automated gates (no horizontal overflow at any common width, no serious accessibility violations, Lighthouse budgets), fixes whatever they find, and produces the screenshots the README needs.
 
 ## What Changes
 

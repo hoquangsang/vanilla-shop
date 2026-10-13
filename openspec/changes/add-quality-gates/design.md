@@ -2,7 +2,7 @@
 
 ## Context
 
-All features are merged (T1–T8). Playwright runs `pnpm build && pnpm preview` on port 4173 with 3 projects. The CI workflow (T2) already runs `pnpm test:e2e`, so the new e2e checks become PR gates automatically. Workflow files are owned by the planning session (cloud sessions may lack the `workflow` permission).
+All features are merged (T1–T8, including T6). Playwright runs `pnpm build && pnpm preview` on port 4173 with 3 projects. The CI workflow (T2) already runs `pnpm test:e2e`, so the new e2e checks become PR gates automatically. Workflow files are owned by the planning session (cloud sessions may lack the `workflow` permission).
 
 ## Goals / Non-Goals
 

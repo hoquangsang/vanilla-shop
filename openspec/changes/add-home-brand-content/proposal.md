@@ -2,7 +2,7 @@
 
 ## Why
 
-Roadmap **T6**. Depends on T1. The lower half of the Home page (`docs/design/zoom/home-part-3.png`, `home-part-4.png`, `home-part-5.png`) is mostly content and layout work, independent from the cart and search logic, so it can be built in parallel with T3–T5.
+Roadmap **T6** (runs 8th, after T8; see `openspec/ROADMAP.md`). Needs T1; by the time it runs T3, T4, T5, T7 and T8 are merged. The lower half of the Home page (`docs/design/zoom/home-part-3.png`, `home-part-4.png`, `home-part-5.png`) is mostly content and layout work, independent from the cart and search logic, so it is scheduled after the features the brief grades.
 
 ## What Changes
 

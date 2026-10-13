@@ -2,7 +2,7 @@
 
 ## Context
 
-After T1: page shell with `<!-- region:hero -->`, `<!-- region:popular-products -->`, `<!-- region:lumispa -->` in `index.html`; tokens, `.container-page`, `.section-title`, `.btn-primary`, `.btn-outline`; `CarouselView` (Swiper). T3 (EventEmitter) may not be merged yet, so the product model must not depend on it. T4 may not be merged yet, so do not touch partials.
+After T1: page shell with `<!-- region:hero -->`, `<!-- region:popular-products -->`, `<!-- region:lumispa -->` in `index.html`; tokens, `.container-page`, `.section-title`, `.btn-primary`, `.btn-outline`; `CarouselView` (Swiper). T3 and T4 are merged; still, the product model does not need `EventEmitter` (static data), and partials belong to T4, so do not touch them.
 
 ## Goals / Non-Goals
 
@@ -63,5 +63,5 @@ export class ProductListController { constructor(model: ProductModel, views: Rec
 
 ## Risks / Trade-offs
 
-- [Parallel edits of `index.html` with T6] → only touch the three owned regions; keep other region comments in place.
+- [`index.html` is shared with T6 later] → only touch the three owned regions; keep other region comments in place.
 - [Swiper `loop` with few slides warns] → hero has 2 slides; if Swiper warns, use `rewind: true` (supported by `CarouselView`) instead of `loop` and note it.

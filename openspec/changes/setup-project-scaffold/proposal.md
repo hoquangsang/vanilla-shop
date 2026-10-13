@@ -2,7 +2,7 @@
 
 ## Why
 
-Roadmap **T1**. Depends on: T0 (repo bootstrap, merged). Every other change needs a working toolchain, the two page shells, the design tokens and the shared carousel wrapper. Doing this once, first, lets T3–T6 run in parallel without each inventing its own setup.
+Roadmap **T1**. Depends on: T0 (repo bootstrap, merged). Every other change needs a working toolchain, the two page shells, the design tokens and the shared carousel wrapper. Doing this once, first, means no later change has to invent its own setup.
 
 ## What Changes
 

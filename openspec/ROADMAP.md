@@ -2,32 +2,30 @@
 
 One OpenSpec change = one branch = one PR. Status is updated by the planning session.
 
-| Id | Change | Owner | Depends on | Status |
-|---|---|---|---|---|
-| T0 | bootstrap repo, Claude setup, design docs, all specs | local | – | ✅ done |
-| T1 | `setup-project-scaffold` | cloud | T0 | ⏳ ready |
-| T2 | `setup-ci-cd` | local | T1 | blocked by T1 |
-| T3 | `add-mvc-core` | cloud | T1 | blocked by T1 |
-| T4 | `add-site-layout` | cloud | T1 | blocked by T1 |
-| T5 | `add-home-showcase` | cloud | T1 | blocked by T1 |
-| T6 | `add-home-brand-content` | cloud | T1 | blocked by T1 |
-| T7 | `add-cart-flow` | cloud | T3, T4, T5 | blocked |
-| T8 | `add-search-to-detail` | cloud | T3, T4 | blocked |
-| T9 | `add-quality-gates` | cloud + local | T7, T8 | blocked |
+Changes run **one at a time**: a cloud session starts the next change only after the previous PR is merged, from an up-to-date `main`. Order puts what the brief grades (cart, search MVC) before pure content.
+
+| # | Id | Change | Owner | Needs merged | Status |
+|---|---|---|---|---|---|
+| 0 | T0 | bootstrap repo, Claude setup, design docs, all specs | local | – | ✅ done |
+| 1 | T1 | `setup-project-scaffold` | cloud | T0 | ⏳ next |
+| 2 | T2 | `setup-ci-cd` | local | T1 | waiting |
+| 3 | T3 | `add-mvc-core` | cloud | T2 | waiting |
+| 4 | T4 | `add-site-layout` | cloud | T3 | waiting |
+| 5 | T5 | `add-home-showcase` | cloud | T4 | waiting |
+| 6 | T7 | `add-cart-flow` | cloud | T5 | waiting |
+| 7 | T8 | `add-search-to-detail` | cloud | T7 | waiting |
+| 8 | T6 | `add-home-brand-content` | cloud | T8 | waiting |
+| 9 | T9 | `add-quality-gates` | cloud + local | T6 | waiting |
 
 ```
-T0 → T1 ─┬─ T2 (local)
-         ├─ T3 ─┬───────────┐
-         ├─ T4 ─┼─ T8 ──────┤
-         ├─ T5 ─┴─ T7 ──────┼─ T9
-         └─ T6 ─────────────┘
+T0 → T1 → T2 (local) → T3 → T4 → T5 → T7 → T8 → T6 → T9
 ```
 
-T3–T6 can run **in parallel** once T1 is merged. T4, T5 and T6 all edit `index.html`, but each in its own region (see below), so merge conflicts stay trivial.
+Ids (T1…T9) are stable names used inside the change files; the **# column is the execution order**.
 
 ## Shared contracts
 
-Changes running in parallel rely on these names. **Do not rename them**; a change that needs a new one adds it here in its PR.
+Every change relies on these names. **Do not rename them**; a change that needs a new one adds it here in its PR. Owning regions/modules keeps each PR focused and easy to review.
 
 ### Page regions in `index.html`
 

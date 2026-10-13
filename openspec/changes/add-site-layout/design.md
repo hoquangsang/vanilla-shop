@@ -60,5 +60,5 @@ Exact copy, items and icons: `docs/design/README.md`. Use `hidden` attribute (no
 
 ## Risks / Trade-offs
 
-- [Categories menu overlaying the hero on Home] → relies on T5 reserving the left column (`data-hero-slot`, `lg:w-1/4`). Until T5 merges, the open list overlays page content; acceptable.
+- [Categories menu overlaying the hero on Home] → relies on T5 (next in order) reserving the left column (`data-hero-slot`, `lg:w-1/4`). Until T5 merges, the open list overlays the empty main area; acceptable.
 - [`hidden` attribute vs Tailwind `lg:flex`] → `hidden` has `display:none` with low specificity in Tailwind v4 preflight; verify `lg:flex` wins or let the view remove `hidden` at `lg` (preferred, deterministic).

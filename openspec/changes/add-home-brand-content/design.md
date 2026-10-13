@@ -2,7 +2,7 @@
 
 ## Context
 
-After T1: regions `awards`, `nu-skin-way`, `news` exist as empty comments in `index.html`; `CarouselView`, `.section-title`, tokens are available. Images: `public/images/banners/award-devices.webp`, `sections/force-for-good.webp`, `sections/nature-science.webp`, `news/news-1..5.webp`, `news/news-side.webp`. T5 edits other regions of the same file in parallel.
+After T1: regions `awards`, `nu-skin-way`, `news` exist as empty comments in `index.html`; `CarouselView`, `.section-title`, tokens are available. Images: `public/images/banners/award-devices.webp`, `sections/force-for-good.webp`, `sections/nature-science.webp`, `news/news-1..5.webp`, `news/news-side.webp`. T5 already filled the other regions of the same file; leave them untouched.
 
 ## Goals / Non-Goals
 
