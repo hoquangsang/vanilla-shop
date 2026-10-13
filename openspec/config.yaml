@@ -1,0 +1,21 @@
+schema: spec-driven
+
+context: |
+  Two-page static shop (index.html = Home, detail.html = Detail) for a front-end intern test.
+  Vite multi-page + vanilla TypeScript + Tailwind v4 + hand-written MVC (models / views / controllers). No framework, no backend.
+  Visual source of truth: docs/design/README.md and the images in docs/design/. The Figma link is not accessible.
+  Specs are implemented by a separate cloud Claude session that cannot ask the user, so every change must be self-contained:
+  exact copy, file paths, defaults and edge cases are written down, not implied.
+  Artifacts are written in English.
+
+rules:
+  proposal:
+    - Include an "Out of scope" list that names neighbouring changes from openspec/ROADMAP.md.
+    - State which roadmap task id (T1..T9) the change implements and which changes it depends on.
+  specs:
+    - Scenarios must be checkable by a unit test, a Playwright test, or a visual comparison against a named design image.
+  design:
+    - Name concrete files to create or modify.
+  tasks:
+    - Every task ends with how to verify it (command, test name, or what to look at).
+    - Last group is "Ship": run pnpm check, run the review agents, open the PR with the ship-change skill.
