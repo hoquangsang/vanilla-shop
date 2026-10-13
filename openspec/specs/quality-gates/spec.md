@@ -20,11 +20,11 @@ An axe-core scan (WCAG 2.0/2.1/2.2 A and AA rules) of Home and Detail at 375px a
 - **THEN** there are zero serious or critical violations
 
 ### Requirement: Lighthouse budgets
-A Lighthouse run (mobile preset) of the production build SHALL score at least 90 for Accessibility, Best Practices and SEO and at least 80 for Performance on both pages.
+A Lighthouse run (mobile preset) of the production build SHALL score at least 90 for Accessibility, Best Practices, SEO and Performance on both pages.
 
 #### Scenario: Lighthouse CI
 - **WHEN** `lhci autorun` runs against `dist/` for `index.html` and `detail.html`
-- **THEN** all assertions in `lighthouserc.json` pass
+- **THEN** all assertions in `lighthouserc.json` pass, including `categories:performance` with `minScore` 0.9
 
 ### Requirement: Readable text and usable targets on mobile
 At 375px no visible text SHALL be smaller than 12px, and every button and link in the header, carousels and product cards SHALL have a hit area of at least 44×44px or at least 24×24px with enough spacing, per WCAG 2.2 Target Size.
@@ -39,3 +39,18 @@ The repository SHALL contain screenshots of Home and Detail at 375, 768 and 1440
 #### Scenario: Regenerate screenshots
 - **WHEN** `pnpm screenshots` is run
 - **THEN** `docs/screenshots/home-375.png`, `home-768.png`, `home-1440.png`, `detail-375.png`, `detail-768.png` and `detail-1440.png` are (re)written as full-page images
+
+### Requirement: Icon fonts contain only used glyphs
+The icon fonts served by the site SHALL be subsets of Font Awesome Free that contain the glyphs referenced in `src/styles/icons.css`, and each font file SHALL be smaller than 20 kB.
+
+#### Scenario: Every used icon is in a subset font
+- **WHEN** the codepoints in `src/styles/icons.css` are compared with the glyphs in `src/assets/fonts/fa-solid-900.woff2` and `fa-brands-400.woff2`
+- **THEN** every codepoint is present in at least one of the two fonts
+
+#### Scenario: Subset fonts are small
+- **WHEN** the size of each file in `src/assets/fonts/` is measured
+- **THEN** each one is under 20 kB
+
+#### Scenario: Icons still render
+- **WHEN** Home is loaded at 1440px
+- **THEN** the header search, wishlist and cart icons, the top-bar social icons and the footer payment icons are visible with non-zero width (the existing layout e2e and a screenshot comparison with `docs/screenshots/home-1440.png` show no missing icons)

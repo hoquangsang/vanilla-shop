@@ -20,7 +20,7 @@ Changes run **one at a time**: a cloud session starts the next change only after
 | 9 | T9 | `add-quality-gates` | cloud + local | T6 | ✅ done (#11 + wrap-up PR) |
 | 10 | T10 | `improve-home-performance` | cloud | T9 | ✅ done (#14) |
 
-> **T0–T9 finished.** They were merged and then archived on 2026-10-14 into [`changes/archive/`](changes/archive/). The current system spec is in [`specs/`](specs/). T10 is a follow-up: the first `lighthouse` run on `main` scored Home performance 0.77, below the 0.8 budget.
+> **Finished.** Every change was merged and then archived on 2026-10-14 into [`changes/archive/`](changes/archive/). The current system spec is in [`specs/`](specs/). T10 was a follow-up: the first `lighthouse` run on `main` scored Home performance 0.77. Subsetting the icon fonts raised it to 0.96, and the budget is now 0.9.
 
 ```
 T0 → T1 → T2 (local) → T3 → T4 → T5 → T7 → T8 → T6 → T9
