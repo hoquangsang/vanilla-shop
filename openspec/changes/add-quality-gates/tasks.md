@@ -17,8 +17,8 @@
 ## 4. Ship
 
 - [x] 4.1 Run `pnpm check` and `pnpm test:e2e`; verify both exit 0
-- [ ] 4.2 Run `responsive-reviewer`, `a11y-auditor` and `spec-verifier` (`add-quality-gates`); verify all PASS / READY
-- [ ] 4.3 Open the PR with the `ship-change` skill (branch `chore/add-quality-gates`), attaching the 1440 and 375 Home screenshots
+- [x] 4.2 Run `responsive-reviewer`, `a11y-auditor` and `spec-verifier` (`add-quality-gates`); verify all PASS / READY
+- [x] 4.3 Open the PR with the `ship-change` skill (branch `chore/add-quality-gates`), attaching the 1440 and 375 Home screenshots
 
 ## Workflow follow-up
 
