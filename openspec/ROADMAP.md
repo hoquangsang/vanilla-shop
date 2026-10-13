@@ -15,8 +15,8 @@ Changes run **one at a time**: a cloud session starts the next change only after
 | 4 | T4 | `add-site-layout` | cloud | T3 | ✅ done (#6) |
 | 5 | T5 | `add-home-showcase` | cloud | T4 | ✅ done (#7) |
 | 6 | T7 | `add-cart-flow` | cloud | T5 | ✅ done (#8) |
-| 7 | T8 | `add-search-to-detail` | cloud | T7 | ⏳ next |
-| 8 | T6 | `add-home-brand-content` | cloud | T8 | waiting |
+| 7 | T8 | `add-search-to-detail` | cloud | T7 | ✅ done (#9) |
+| 8 | T6 | `add-home-brand-content` | cloud | T8 | ⏳ next |
 | 9 | T9 | `add-quality-gates` | cloud + local | T6 | waiting |
 
 ```
