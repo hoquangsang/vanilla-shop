@@ -44,17 +44,17 @@ The URL is the hand-off between pages: model state on the first page becomes the
 
 ## File map
 
-| File | Layer | Responsibility |
-|---|---|---|
-| `src/models/search-model.ts` | Model | Normalise and validate the query, hold it, build the Detail URL |
-| `src/views/search-form-view.ts` | View | Header form: intercept submit, show or clear the empty-query hint |
-| `src/views/detail-view.ts` | View | Put the query into the Detail textarea (`.value`, never `innerHTML`) |
-| `src/controllers/search-controller.ts` | Controller | Form submit → model → navigate or show the hint |
-| `src/controllers/detail-controller.ts` | Controller | URL query → model → `DetailView.render` |
-| `src/core/navigation.ts` | Core | `PageNavigator`, injected so tests do not navigate |
-| `src/pages/search.ts` | Wiring | `initSearch()` (both pages), `initDetail()` (Detail) |
-| `src/models/cart-model.ts` | Model | Cart items and count, persisted through `core/storage.ts` |
-| `src/views/cart-badge-view.ts` | View | Header badge number, accessible label, live announcement |
-| `src/views/add-to-cart-view.ts` | View | "Add to cart" clicks and the temporary "Added ✓" label |
-| `src/controllers/cart-controller.ts` | Controller | Button click → model; model change → badge |
-| `src/pages/cart.ts` | Wiring | `initCart()` (both pages) |
+| File                                   | Layer      | Responsibility                                                       |
+| -------------------------------------- | ---------- | -------------------------------------------------------------------- |
+| `src/models/search-model.ts`           | Model      | Normalise and validate the query, hold it, build the Detail URL      |
+| `src/views/search-form-view.ts`        | View       | Header form: intercept submit, show or clear the empty-query hint    |
+| `src/views/detail-view.ts`             | View       | Put the query into the Detail textarea (`.value`, never `innerHTML`) |
+| `src/controllers/search-controller.ts` | Controller | Form submit → model → navigate or show the hint                      |
+| `src/controllers/detail-controller.ts` | Controller | URL query → model → `DetailView.render`                              |
+| `src/core/navigation.ts`               | Core       | `PageNavigator`, injected so tests do not navigate                   |
+| `src/pages/search.ts`                  | Wiring     | `initSearch()` (both pages), `initDetail()` (Detail)                 |
+| `src/models/cart-model.ts`             | Model      | Cart items and count, persisted through `core/storage.ts`            |
+| `src/views/cart-badge-view.ts`         | View       | Header badge number, accessible label, live announcement             |
+| `src/views/add-to-cart-view.ts`        | View       | "Add to cart" clicks and the temporary "Added ✓" label               |
+| `src/controllers/cart-controller.ts`   | Controller | Button click → model; model change → badge                           |
+| `src/pages/cart.ts`                    | Wiring     | `initCart()` (both pages)                                            |
