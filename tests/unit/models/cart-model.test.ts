@@ -123,6 +123,7 @@ describe("CartModel", () => {
     cart.add("__proto__");
     expect(cart.count).toBe(3);
     expect(cart.getState().count).toBe(3);
+    expect(cart.getState().items.toString).toBeUndefined();
   });
 
   it("returns frozen copies from getState", () => {

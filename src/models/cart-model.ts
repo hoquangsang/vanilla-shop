@@ -54,7 +54,7 @@ export class CartModel extends EventEmitter<{ change: CartState }> {
   }
 
   getState(): CartState {
-    const items = Object.freeze({ ...this.items });
+    const items = Object.freeze(bare(this.items));
     return Object.freeze({ items, count: this.total(items) });
   }
 
