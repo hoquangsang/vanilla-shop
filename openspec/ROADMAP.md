@@ -60,6 +60,7 @@ Every change relies on these names. **Do not rename them**; a change that needs 
 | `data-categories-toggle` / `data-categories-menu` | Categories button / list | T4 | T4 |
 | `data-nav-toggle` / `data-nav-menu` | hamburger / collapsible nav | T4 | T4 |
 | `data-nav="home"` / `data-nav="detail"` | nav links that get `aria-current="page"` | T4 | T4 |
+| `data-dropdown` (wrapper) with `data-dropdown-toggle` / `data-dropdown-menu` | click-to-open sub-menus ("Pages", "Dresses") | T4 | T4 |
 | `data-hero-slot` | empty, `aria-hidden` left column (`lg:` 1/4 width) beside the hero. On Home ≥ lg the Categories menu (absolutely positioned, open by default) overlays it | T5 | T4 |
 | `data-carousel` | root of every Swiper carousel (`CarouselView`) | T1 | T5, T6 |
 | `data-product-list="description"` / `="specifications"` | product carousel wrappers | T5 | T5 |
