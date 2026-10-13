@@ -27,4 +27,4 @@
 
 - [x] 6.1 Run `pnpm check`; verify it exits 0
 - [x] 6.2 Run `responsive-reviewer`, `a11y-auditor` and `spec-verifier` (`add-home-showcase`); fix blockers
-- [ ] 6.3 Open the PR with the `ship-change` skill (branch `feat/add-home-showcase`), with 375 and 1440 screenshots of the three regions
+- [x] 6.3 Open the PR with the `ship-change` skill (branch `feat/add-home-showcase`), with 375 and 1440 screenshots of the three regions
