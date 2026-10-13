@@ -2,21 +2,21 @@
 
 ## 1. Detail page
 
-- [ ] 1.1 Build region `detail` in `detail.html` as in design.md > Detail markup; verify at 375 and 1440 against `docs/design/flow-search-detail.png`
+- [x] 1.1 Build region `detail` in `detail.html` as in design.md > Detail markup; verify at 375 and 1440 against `docs/design/flow-search-detail.png`
 
 ## 2. Views and navigation
 
-- [ ] 2.1 Add `src/core/navigation.ts`; implement `SearchFormView` and `DetailView` with unit tests; verify `pnpm test` passes
+- [x] 2.1 Add `src/core/navigation.ts`; implement `SearchFormView` and `DetailView` with unit tests; verify `pnpm test` passes
 
 ## 3. Controllers and wiring
 
-- [ ] 3.1 Implement `SearchController` and `DetailController` with unit tests using the real `SearchModel`, fake views and a fake navigator; verify `pnpm test` passes
-- [ ] 3.2 Add `src/pages/search.ts` (`initSearch()`, `initDetail()`), call them from `home.ts` / `detail.ts`; verify in `pnpm dev` that searching `Reasonable Price` on Home shows it on Detail
+- [x] 3.1 Implement `SearchController` and `DetailController` with unit tests using the real `SearchModel`, fake views and a fake navigator; verify `pnpm test` passes
+- [x] 3.2 Add `src/pages/search.ts` (`initSearch()`, `initDetail()`), call them from `home.ts` / `detail.ts`; verify in `pnpm dev` that searching `Reasonable Price` on Home shows it on Detail
 
 ## 4. E2E and docs
 
-- [ ] 4.1 Write `tests/e2e/search.spec.ts` with one test per scenario in `specs/search-to-detail/spec.md`; verify `pnpm test:e2e` passes on all projects
-- [ ] 4.2 Write `docs/mvc.md` (Mermaid sequence diagram + file/layer table for search and cart); verify the Mermaid block renders in GitHub's preview
+- [x] 4.1 Write `tests/e2e/search.spec.ts` with one test per scenario in `specs/search-to-detail/spec.md`; verify `pnpm test:e2e` passes on all projects
+- [x] 4.2 Write `docs/mvc.md` (Mermaid sequence diagram + file/layer table for search and cart); verify the Mermaid block renders in GitHub's preview
 
 ## 5. Ship
 
