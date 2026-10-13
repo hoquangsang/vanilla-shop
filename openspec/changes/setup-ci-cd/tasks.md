@@ -15,9 +15,9 @@
 
 ## 3. Repository settings
 
-- [ ] 3.1 Configure squash-only merges, delete branch on merge, and branch protection or a ruleset on `main` requiring the CI check; verify a direct push to `main` is rejected
+- [x] 3.1 Configure squash-only merges, delete branch on merge, and branch protection or a ruleset on `main` requiring the CI check; verify a direct push to `main` is rejected
 - [x] 3.2 Grant the Claude GitHub App access to the repo for cloud sessions; verify a cloud session can clone and push a branch
 
 ## 4. Ship
 
-- [ ] 4.1 Add CI + Vercel badges and the production URL to `README.md`; open PR `ci: setup-ci-cd - GitHub Actions + Vercel`, verify all checks pass and the preview deploy works, then merge and verify the production URL serves the site
+- [x] 4.1 Add CI + Vercel badges and the production URL to `README.md`; open PR `ci: setup-ci-cd - GitHub Actions + Vercel`, verify all checks pass and the preview deploy works, then merge and verify the production URL serves the site

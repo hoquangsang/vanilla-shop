@@ -79,5 +79,5 @@ Add generous bottom spacing (`pb-24`) so the footer sits low as in the design im
 
 ## Risks / Trade-offs
 
-- [Vercel `cleanUrls` redirects `detail.html?q=` → `/detail?q=`] → query string is preserved by the redirect; the e2e runs against `vite preview` (no redirect) and T2's preview deployment covers the Vercel case. Assert on `textarea` content, and on the URL only with a regex that accepts both `/detail.html?q=` and `/detail?q=`.
+- [Hosting rewrites] → Vercel serves `detail.html` as-is (no `cleanUrls`), same as `vite preview`. Assert on `textarea` content first; assert the URL with `/detail\.html\?q=/`.
 - [`location.assign` in happy-dom] → never called in unit tests thanks to the injected `PageNavigator`.
