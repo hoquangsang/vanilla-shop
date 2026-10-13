@@ -30,3 +30,5 @@ They are placeholders for the XTech789 test; swap freely.
 | news/news-side.webp | 1544005313-94ddf0286df2 |
 
 Source URL pattern: `https://unsplash.com/photos/<id>` (CDN: `https://images.unsplash.com/photo-<id>`).
+
+`awards/award-1..6.svg` are seals drawn in this repo (no third-party logos).
