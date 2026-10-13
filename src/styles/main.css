@@ -8,8 +8,10 @@
   --color-primary-dark: #44124e;
   --color-primary-soft: #b89bc0;
   --color-accent: #e7ab3c;
+  --color-accent-ink: #946200;
   --color-link-active: #d19c97;
   --color-sale: #76bc49;
+  --color-sale-dark: #468025;
   --color-teal: #1fa58a;
   --color-surface-alt: #f3f7f8;
   --color-surface-warm: #f2f1ee;
@@ -42,13 +44,29 @@
 }
 
 /* Unlayered on purpose: Swiper's own (unlayered) CSS would otherwise win over @layer components. */
+/* Pagination bullets: a 24x24 hit area (WCAG 2.2 Target Size) with the visible dot/bar drawn by ::before. */
+.swiper-pagination-bullets {
+  --swiper-pagination-bullet-horizontal-gap: 0px;
+}
+.swiper-pagination-bullets .swiper-pagination-bullet {
+  @apply inline-flex size-6 items-center justify-center bg-transparent;
+}
+.swiper-pagination-bullets .swiper-pagination-bullet::before {
+  @apply size-2 rounded-full bg-(--swiper-pagination-bullet-inactive-color,#000) content-[''];
+}
+.swiper-pagination-bullets .swiper-pagination-bullet-active::before {
+  @apply bg-(--swiper-pagination-color,var(--swiper-theme-color));
+}
 /* CarouselView pagination: "bar" (product + news carousels, docs/design/zoom/home-part-2.png) */
 .carousel-bar-pagination {
-  @apply flex items-center justify-center gap-1;
+  @apply flex items-center justify-center;
 }
 .carousel-bar-pagination .swiper-pagination-bullet {
-  @apply m-0 h-1 w-2 rounded-none bg-gray-300 opacity-100 transition-[width,background-color];
+  @apply opacity-100;
 }
-.carousel-bar-pagination .swiper-pagination-bullet-active {
+.carousel-bar-pagination .swiper-pagination-bullet::before {
+  @apply h-1 w-2 rounded-none bg-gray-300 transition-[width,background-color];
+}
+.carousel-bar-pagination .swiper-pagination-bullet-active::before {
   @apply w-6 bg-ink;
 }
