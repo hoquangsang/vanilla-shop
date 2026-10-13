@@ -18,7 +18,7 @@ Changes run **one at a time**: a cloud session starts the next change only after
 | 7 | T8 | `add-search-to-detail` | cloud | T7 | ✅ done (#9) |
 | 8 | T6 | `add-home-brand-content` | cloud | T8 | ✅ done (#10) |
 | 9 | T9 | `add-quality-gates` | cloud + local | T6 | ✅ done (#11 + wrap-up PR) |
-| 10 | T10 | `improve-home-performance` | cloud | T9 | ⏳ next |
+| 10 | T10 | `improve-home-performance` | cloud | T9 | ✅ done (#14) |
 
 > **T0–T9 finished.** They were merged and then archived on 2026-10-14 into [`changes/archive/`](changes/archive/). The current system spec is in [`specs/`](specs/). T10 is a follow-up: the first `lighthouse` run on `main` scored Home performance 0.77, below the 0.8 budget.
 
