@@ -35,9 +35,11 @@ export const BAR_PAGINATION_CLASS = "carousel-bar-pagination";
  * ```
  */
 export class CarouselView {
+  private readonly root: HTMLElement;
   private readonly swiper: Swiper;
 
   constructor(root: HTMLElement, options: CarouselOptions = {}) {
+    this.root = root;
     const container = root.querySelector<HTMLElement>(".swiper");
     if (!container)
       throw new Error("CarouselView: missing .swiper container inside [data-carousel]");
@@ -48,6 +50,9 @@ export class CarouselView {
     if (paginationEl && options.pagination === "bar")
       paginationEl.classList.add(BAR_PAGINATION_CLASS);
 
+    const reduceMotion = prefersReducedMotion();
+    const autoplay = options.autoplayMs !== undefined && !reduceMotion;
+
     const config: SwiperOptions = {
       modules: [Navigation, Pagination, Autoplay, A11y, Keyboard],
       slidesPerView: options.slidesPerView ?? 1,
@@ -55,10 +60,11 @@ export class CarouselView {
       loop: options.loop ?? false,
       rewind: options.rewind ?? false,
       watchSlidesProgress: options.watchSlidesProgress ?? false,
+      speed: reduceMotion ? 0 : 300,
       a11y: { enabled: true },
       keyboard: { enabled: true, onlyInViewport: true },
       autoplay:
-        options.autoplayMs !== undefined && !prefersReducedMotion()
+        autoplay && options.autoplayMs !== undefined
           ? { delay: options.autoplayMs, pauseOnMouseEnter: true, disableOnInteraction: false }
           : false,
     };
@@ -67,7 +73,22 @@ export class CarouselView {
     if (paginationEl) config.pagination = { el: paginationEl, clickable: true };
 
     this.swiper = new Swiper(container, config);
+
+    // WCAG 2.2.2: keyboard users get the same pause as mouse users (pauseOnMouseEnter).
+    if (autoplay) {
+      root.addEventListener("focusin", this.pauseAutoplay);
+      root.addEventListener("focusout", this.resumeAutoplay);
+    }
   }
+
+  private readonly pauseAutoplay = (): void => {
+    this.swiper.autoplay.stop();
+  };
+
+  private readonly resumeAutoplay = (event: FocusEvent): void => {
+    if (event.relatedTarget instanceof Node && this.root.contains(event.relatedTarget)) return;
+    this.swiper.autoplay.start();
+  };
 
   /** Recompute sizes, e.g. after the carousel leaves a `hidden` tab panel. */
   update(): void {
@@ -75,6 +96,8 @@ export class CarouselView {
   }
 
   destroy(): void {
+    this.root.removeEventListener("focusin", this.pauseAutoplay);
+    this.root.removeEventListener("focusout", this.resumeAutoplay);
     this.swiper.destroy(true, true);
   }
 }

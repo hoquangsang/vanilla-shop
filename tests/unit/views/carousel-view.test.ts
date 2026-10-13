@@ -80,6 +80,29 @@ describe("CarouselView", () => {
     expect(swiper.autoplay.running).toBe(false);
   });
 
+  it("pauses autoplay while focus is inside the carousel and resumes when it leaves", () => {
+    const { root, swiper } = mount({ autoplayMs: 3000 });
+    const stop = vi.spyOn(swiper.autoplay, "stop");
+    const start = vi.spyOn(swiper.autoplay, "start");
+    const next = root.querySelector<HTMLButtonElement>("[data-carousel-next]")!;
+    const prev = root.querySelector<HTMLButtonElement>("[data-carousel-prev]")!;
+
+    next.dispatchEvent(new FocusEvent("focusin", { bubbles: true }));
+    expect(stop).toHaveBeenCalledOnce();
+
+    next.dispatchEvent(new FocusEvent("focusout", { bubbles: true, relatedTarget: prev }));
+    expect(start).not.toHaveBeenCalled();
+
+    prev.dispatchEvent(new FocusEvent("focusout", { bubbles: true, relatedTarget: document.body }));
+    expect(start).toHaveBeenCalledOnce();
+  });
+
+  it("disables slide animation when the user prefers reduced motion", () => {
+    mockReducedMotion(true);
+    const { swiper } = mount();
+    expect(swiper.params.speed).toBe(0);
+  });
+
   it('adds the bar class to the pagination for pagination: "bar"', () => {
     const { root } = mount({ pagination: "bar" });
     const pagination = root.querySelector("[data-carousel-pagination]")!;
