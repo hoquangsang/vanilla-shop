@@ -1,7 +1,7 @@
 import { expect, test, type Page } from "@playwright/test";
 
 const PURPLE = "rgb(85, 23, 96)";
-const ACTIVE = "rgb(209, 156, 151)";
+const ACTIVE = "rgb(161, 94, 88)";
 
 function width(page: Page): number {
   return page.viewportSize()?.width ?? 0;

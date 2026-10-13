@@ -43,7 +43,7 @@ The nav row SHALL show the links Home, Shop, Shop Detail, Pages (sub-menu: Shopp
 
 #### Scenario: Current page on Home
 - **WHEN** Home is loaded
-- **THEN** the Home link has `aria-current="page"` and colour `#d19c97`, and no other nav link has `aria-current`
+- **THEN** the Home link has `aria-current="page"` and colour `#a15e58` (`--color-link-active-ink`, a darker shade of the design's `#d19c97` that reaches 4.5:1 on white), and no other nav link has `aria-current`
 
 #### Scenario: Current page on Detail
 - **WHEN** Detail is loaded

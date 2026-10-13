@@ -50,8 +50,6 @@ test.describe("axe-core", () => {
       test(`${path} at ${width}px has no serious violations`, async ({ page }) => {
         await load(page, path, width);
         const { violations } = await new AxeBuilder({ page })
-          // The active nav link colour (#d19c97) is fixed by the site-layout spec and design tokens.
-          .exclude("a[data-nav][aria-current]")
           .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
           .analyze();
         const serious = violations.filter((v) => v.impact === "serious" || v.impact === "critical");

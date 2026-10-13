@@ -24,7 +24,8 @@ Sampled from the exports. Register them as Tailwind v4 `@theme` tokens; do not h
 | `--color-primary-dark` | `#44124e` | Footer bottom bar, button hover |
 | `--color-primary-soft` | `#b89bc0` | Thin lines inside the section-title pill |
 | `--color-accent` | `#e7ab3c` | Current price, active tab underline |
-| `--color-link-active` | `#d19c97` | Active nav link ("Home") |
+| `--color-link-active` | `#d19c97` | Hover on top-bar icons. Design colour of the active nav link |
+| `--color-link-active-ink` | `#a15e58` | Active nav link text (darker `#d19c97`, 4.9:1 on white for WCAG AA) |
 | `--color-sale` | `#76bc49` | "SALE" ribbon on product cards |
 | `--color-teal` | `#1fa58a` | Decorative strokes in "Find out what everyone's talking about" |
 | `--color-surface-alt` | `#f3f7f8` | Background of the Most Popular Products band |
@@ -55,7 +56,7 @@ Sampled from the exports. Register them as Tailwind v4 `@theme` tokens; do not h
   - **Home page, ≥ lg:** the category list is **open** under the button, as a sidebar next to the hero (see `zoom/home-part-1.png`).
   - **Detail page and < lg:** collapsed; clicking the button toggles the list as a dropdown.
   - Items: Dresses (with a caret, sub-menu: Men's Dresses, Women's Dresses, Baby's Dresses), Shirts, Jeans, Swimwear, Sleepwear, Sportswear, Jumpsuits, Blazers, Jackets, Shoes. Items separated by light borders.
-- Right: links `Home` (active, `--color-link-active`), `Shop`, `Shop Detail`, `Pages ▾` (dropdown: Shopping Cart, Checkout), `Contact`; far right `Login`, `Register`.
+- Right: links `Home` (active, `--color-link-active-ink`), `Shop`, `Shop Detail`, `Pages ▾` (dropdown: Shopping Cart, Checkout), `Contact`; far right `Login`, `Register`.
 - Mobile (< lg): links collapse into a hamburger button that opens a vertical menu.
 - Link targets: `Home` → `index.html`, `Shop Detail` → `detail.html`, everything else `#`.
 
