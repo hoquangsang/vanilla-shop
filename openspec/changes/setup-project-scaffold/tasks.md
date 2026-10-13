@@ -26,4 +26,4 @@
 ## 5. Ship
 
 - [x] 5.1 Run `pnpm check`; verify it exits 0
-- [ ] 5.2 Open the PR with the `ship-change` skill (branch `chore/setup-project-scaffold`, title `chore: setup-project-scaffold - Vite + TS + Tailwind scaffold`), including the output of `pnpm check`
+- [x] 5.2 Open the PR with the `ship-change` skill (branch `chore/setup-project-scaffold`, title `chore: setup-project-scaffold - Vite + TS + Tailwind scaffold`), including the output of `pnpm check`
