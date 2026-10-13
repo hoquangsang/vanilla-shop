@@ -5,9 +5,16 @@ function itemsLabel(count: number): string {
 }
 
 export class CartBadgeView {
-  private liveRegion: HTMLElement | null = null;
+  private readonly liveRegion: HTMLElement;
 
-  constructor(private readonly root: ParentNode = document) {}
+  constructor(private readonly root: ParentNode = document) {
+    // Created up front so screen readers already watch it when the first update lands.
+    this.liveRegion = document.createElement("div");
+    this.liveRegion.className = "sr-only";
+    this.liveRegion.setAttribute("role", "status");
+    this.liveRegion.setAttribute("aria-live", "polite");
+    document.body.append(this.liveRegion);
+  }
 
   render(count: number): void {
     const text = count > MAX_DISPLAY ? `${MAX_DISPLAY}+` : String(count);
@@ -18,18 +25,6 @@ export class CartBadgeView {
   }
 
   announce(count: number): void {
-    this.region().textContent = `Cart updated: ${itemsLabel(count)}`;
-  }
-
-  private region(): HTMLElement {
-    if (!this.liveRegion) {
-      const el = document.createElement("div");
-      el.className = "sr-only";
-      el.setAttribute("aria-live", "polite");
-      el.setAttribute("role", "status");
-      document.body.append(el);
-      this.liveRegion = el;
-    }
-    return this.liveRegion;
+    this.liveRegion.textContent = `Cart updated: ${itemsLabel(count)}`;
   }
 }
