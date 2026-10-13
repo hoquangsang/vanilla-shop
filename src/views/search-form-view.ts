@@ -12,8 +12,7 @@ export class SearchFormView {
     this.hint.id = HINT_ID;
     this.hint.setAttribute("role", "status");
     this.hint.className =
-      "absolute top-full left-0 z-10 mt-1 bg-white px-1 text-sm text-primary";
-    this.hint.hidden = true;
+      "invisible absolute top-full max-w-full left-0 z-10 mt-1 bg-white px-1 text-sm text-primary";
     this.form.append(this.hint);
     this.input.addEventListener("input", () => this.clearError());
   }
@@ -27,14 +26,14 @@ export class SearchFormView {
 
   showError(message: string): void {
     this.hint.textContent = message;
-    this.hint.hidden = false;
+    this.hint.classList.remove("invisible");
     this.input.setAttribute("aria-invalid", "true");
     this.input.setAttribute("aria-describedby", HINT_ID);
     this.input.focus();
   }
 
   clearError(): void {
-    this.hint.hidden = true;
+    this.hint.classList.add("invisible");
     this.hint.textContent = "";
     this.input.removeAttribute("aria-invalid");
     this.input.removeAttribute("aria-describedby");

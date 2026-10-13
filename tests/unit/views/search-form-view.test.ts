@@ -27,7 +27,7 @@ describe("SearchFormView", () => {
     view.showError("Please enter a keyword");
     const hint = document.getElementById(input.getAttribute("aria-describedby")!)!;
     expect(hint.textContent).toBe("Please enter a keyword");
-    expect(hint.hidden).toBe(false);
+    expect(hint.classList.contains("invisible")).toBe(false);
     expect(hint.getAttribute("role")).toBe("status");
     expect(input.getAttribute("aria-invalid")).toBe("true");
     expect(document.activeElement).toBe(input);
@@ -38,6 +38,6 @@ describe("SearchFormView", () => {
     input.dispatchEvent(new Event("input"));
     expect(input.hasAttribute("aria-invalid")).toBe(false);
     expect(input.hasAttribute("aria-describedby")).toBe(false);
-    expect(form.querySelector<HTMLElement>("[role=status]")!.hidden).toBe(true);
+    expect(form.querySelector("[role=status]")!.classList.contains("invisible")).toBe(true);
   });
 });
