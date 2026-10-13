@@ -2,14 +2,16 @@
 
 One OpenSpec change = one branch = one PR. Status is updated by the planning session.
 
+Production: https://vanilla-shop-gamma.vercel.app (deployed by GitHub Actions on every push to `main`).
+
 Changes run **one at a time**: a cloud session starts the next change only after the previous PR is merged, from an up-to-date `main`. Order puts what the brief grades (cart, search MVC) before pure content.
 
 | # | Id | Change | Owner | Needs merged | Status |
 |---|---|---|---|---|---|
 | 0 | T0 | bootstrap repo, Claude setup, design docs, all specs | local | – | ✅ done |
 | 1 | T1 | `setup-project-scaffold` | cloud | T0 | ✅ done (#1) |
-| 2 | T2 | `setup-ci-cd` | local | T1 | 🔧 in progress |
-| 3 | T3 | `add-mvc-core` | cloud | T2 | waiting |
+| 2 | T2 | `setup-ci-cd` | local | T1 | ✅ done (#3) |
+| 3 | T3 | `add-mvc-core` | cloud | T2 | ⏳ next |
 | 4 | T4 | `add-site-layout` | cloud | T3 | waiting |
 | 5 | T5 | `add-home-showcase` | cloud | T4 | waiting |
 | 6 | T7 | `add-cart-flow` | cloud | T5 | waiting |

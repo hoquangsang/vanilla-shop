@@ -28,7 +28,7 @@ The Git integration needs no workflow at all, but it deploys even when tests fai
   "git": { "deploymentEnabled": false },
   "headers": [{ "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] }] }
 ```
-`cleanUrls` serves `detail.html` at `/detail` and redirects `.html` URLs, so the `detail.html?q=` links from T4/T8 keep working (the query string survives the redirect).
+No `cleanUrls`: with Vercel CLI 63 it maps `index.html` to `/index` and the site root returns 404. Pages are served at `/` and `/detail.html`, matching the links in the markup.
 
 ### Secrets and settings (done with CLI by the planning session)
 - `npm i -g vercel` → user runs `vercel login` → `vercel link --yes --project vanilla-shop` → read `orgId`/`projectId` from `.vercel/project.json` → `gh secret set VERCEL_ORG_ID / VERCEL_PROJECT_ID`.

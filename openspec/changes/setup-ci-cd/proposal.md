@@ -9,7 +9,7 @@ Roadmap **T2**, owned by the **planning (local) session** because it needs secre
 - `.github/workflows/ci.yml`: lint, typecheck, unit tests, build, Playwright e2e on every PR and every push to `main`; uploads the Playwright report on failure.
 - `.github/workflows/deploy.yml`: deploys to **Vercel** through the Vercel CLI. Pull requests get a preview deployment whose URL is posted as a sticky PR comment. Pushes to `main` deploy to production after CI passes.
 - `.github/workflows/claude-review.yml`: `anthropics/claude-code-action` reviews each PR against `CLAUDE.md` and the change's OpenSpec files.
-- `vercel.json`: build settings, `cleanUrls`, cache headers for hashed assets.
+- `vercel.json`: build settings and cache headers for hashed assets.
 - Repository settings: branch protection on `main` (PR required, CI must pass, linear history, squash merge only, delete branch on merge).
 - Secrets: `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`, `CLAUDE_CODE_OAUTH_TOKEN`.
 - README badges for CI and deployment.
