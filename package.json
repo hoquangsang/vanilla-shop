@@ -17,7 +17,9 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "check": "pnpm lint && pnpm typecheck && pnpm test && vite build",
-    "openspec": "openspec"
+    "openspec": "openspec",
+    "screenshots": "pnpm build && tsx scripts/screenshots.ts",
+    "lhci": "pnpm build && lhci autorun"
   },
   "dependencies": {
     "@fontsource/roboto": "^5.3.0",
@@ -25,8 +27,10 @@
     "swiper": "^14.3.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
     "@eslint/js": "^10.0.1",
     "@fission-ai/openspec": "^1.14.1",
+    "@lhci/cli": "^0.15.1",
     "@playwright/test": "^1.64.0",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^26.6.5",
@@ -37,6 +41,7 @@
     "prettier": "^3.9.10",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.71.1",
     "vite": "^8.3.4",
