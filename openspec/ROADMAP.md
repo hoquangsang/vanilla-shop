@@ -17,7 +17,9 @@ Changes run **one at a time**: a cloud session starts the next change only after
 | 6 | T7 | `add-cart-flow` | cloud | T5 | ✅ done (#8) |
 | 7 | T8 | `add-search-to-detail` | cloud | T7 | ✅ done (#9) |
 | 8 | T6 | `add-home-brand-content` | cloud | T8 | ✅ done (#10) |
-| 9 | T9 | `add-quality-gates` | cloud + local | T6 | 🔧 cloud done (#11), local follow-up next |
+| 9 | T9 | `add-quality-gates` | cloud + local | T6 | ✅ done (#11 + wrap-up PR) |
+
+> **Finished.** All changes were merged and then archived on 2026-10-14 into [`changes/archive/`](changes/archive/). The current system spec is in [`specs/`](specs/).
 
 ```
 T0 → T1 → T2 (local) → T3 → T4 → T5 → T7 → T8 → T6 → T9

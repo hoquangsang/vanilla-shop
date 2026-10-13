@@ -28,7 +28,7 @@ The roadmap ran **sequentially**: one cloud session at a time, and the next star
 | T7  | `add-cart-flow`                             | cloud         | [#8](https://github.com/hoquangsang/vanilla-shop/pull/8)                                                               |
 | T8  | `add-search-to-detail`                      | cloud         | [#9](https://github.com/hoquangsang/vanilla-shop/pull/9)                                                               |
 | T6  | `add-home-brand-content`                    | cloud         | [#10](https://github.com/hoquangsang/vanilla-shop/pull/10)                                                             |
-| T9  | `add-quality-gates`                         | cloud + local | see roadmap                                                                                                            |
+| T9  | `add-quality-gates`                         | cloud + local | [#11](https://github.com/hoquangsang/vanilla-shop/pull/11) + the wrap-up PR                                            |
 
 After merge, every change was archived into [`openspec/specs/`](../openspec/specs/), which now describes the whole system. The archived change folders are in [`openspec/changes/archive/`](../openspec/changes/archive/).
 
