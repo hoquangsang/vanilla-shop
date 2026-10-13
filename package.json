@@ -19,6 +19,7 @@
     "check": "pnpm lint && pnpm typecheck && pnpm test && vite build",
     "openspec": "openspec",
     "screenshots": "pnpm build && tsx scripts/screenshots.ts",
+    "icons": "tsx scripts/subset-icons.ts",
     "lhci": "pnpm build && lhci autorun"
   },
   "dependencies": {
@@ -40,6 +41,7 @@
     "happy-dom": "^21.0.1",
     "prettier": "^3.9.10",
     "prettier-plugin-tailwindcss": "^0.8.1",
+    "subset-font": "^2.9.0",
     "tailwindcss": "^4.3.3",
     "tsx": "^4.23.15",
     "typescript": "~6.0.3",
